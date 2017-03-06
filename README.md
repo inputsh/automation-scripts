@@ -2,9 +2,9 @@
 
 This is a list of scripts that I use to automate my home. It currently contains the following scripts:
 
-* [diplo_and_friends.py](#-diplo_and_friends-py-)
-* [music-to-subfolders.sh](#-music-to-subfolders-sh-)
-* [music-to-external-hdd.sh](#-music-to-external-hdd-sh-)
+* [diplo_and_friends.py](#diplo_and_friendspy)
+* [music-to-subfolders.sh](#music-to-subfolderssh)
+* [music-to-external-hdd.sh](#music-to-external-hddsh)
 
 ## `diplo_and_friends.py`
 
