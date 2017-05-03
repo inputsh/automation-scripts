@@ -6,6 +6,8 @@ This is a list of scripts that I use to automate my home. It currently contains 
 * [music-to-subfolders.sh](#music-to-subfolderssh)
 * [music-to-external-hdd.sh](#music-to-external-hddsh)
 
+The ideas I have in my head are listed in the `ideas.md` file and may or may not be created.
+
 ## `diplo_and_friends.py`
 
 Automatically download the latest Diplo & Friends BBC radio show by setting up a cronjob to run this script every Sunday morning. Can easily be modified to automatically download any of the BBC shows. I'm using this script on a Raspberry Pi that's always powered on and the script always downloads to a specific folder. The script tries to download every episode available from the show, but `get_iplayer` is smart enough not to download those that have already been downloaded, therefore avoiding the duplicate downloads.
