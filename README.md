@@ -11,14 +11,18 @@ The ideas I have in my head are listed in the `ideas.md` file and may or may not
 
 ## `diplo_and_friends.py`
 
-Automatically download the latest Diplo & Friends BBC radio show by setting up a cronjob to run this script every Sunday morning. Can easily be modified to automatically download any of the BBC shows. I'm using this script on a Raspberry Pi that's always powered on and the script always downloads to a specific folder. The script tries to download every episode available from the show, but `get_iplayer` is smart enough not to download those that have already been downloaded, therefore avoiding the duplicate downloads.
+Automatically download the latest Diplo & Friends BBC radio show by setting up a cronjob to run this script every Sunday morning. Can easily be modified to automatically download any of the BBC shows. The script tries to download every episode available from the show, but `get_iplayer` is smart enough not to download those that have already been downloaded, therefore avoiding the duplicate downloads.
+
+**Bonus points:** this script is executed on my [Nextcloud](https://nextcloud.com/) server, so there's a `php occ files:scan` command that re-scans the files in the directory the `.mp3` files are placed in. This script is also integrated with [Simplepush](https://simplepush.io/), so that I would get an Android notification that the new episode is currently being downloaded on my server.
 
 * **Scripting language:** Python 2
-* **Prerequisites:** `pip install requests bs4` and [`get_iplayer`](https://github.com/get-iplayer/get_iplayer).
+* **Prerequisites:** `pip install requests bs4` and [`get_iplayer`](https://github.com/get-iplayer/get_iplayer). [Nextcloud](https://nextcloud.com/) and [Simplepush](https://simplepush.io/) for bonus points.
 
 ## `goodreads_to_md_list.py`
 
 This script works with the Goodreads API. It fetches the list of books from a public Goodreads shelf, and then outputs the list as a Markdown file. The point of this list is to have it synced in some external file, which could later be backed up (by using Git, as you can [see here](https://github.com/aleksandar-todorovic/notes/blob/master/00_books.md)).
+
+Note that each book in your year needs to have a valid `read_at` field filled out for the lines 53-65 to work. I could have added a small try/except to fix this, but I specifically wanted it to make sure that every book has a `read_at` field filled out before continuing.
 
 * **Scripting language:** Python 3
 * **Prerequisites:** `pip install requests`
