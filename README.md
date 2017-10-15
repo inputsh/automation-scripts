@@ -4,6 +4,7 @@ This is a list of scripts that I use to automate my home. It currently contains 
 
 * [diplo_and_friends.py](#diplo_and_friendspy)
 * [goodreads_to_md_list.py](#goodreads_to_md_listpy)
+* [hn500-to-simplepush.py](#hn500-to-simplepushpy)
 * [music-to-subfolders.sh](#music-to-subfolderssh)
 * [music-to-external-hdd.sh](#music-to-external-hddsh)
 
@@ -26,6 +27,15 @@ Note that each book in your year needs to have a valid `read_at` field filled ou
 
 * **Scripting language:** Python 3
 * **Prerequisites:** `pip install requests`
+
+## `hn500-to-simplepush.py`
+
+Send a [Simplepush](https://simplepush.io/) notification to your Android device every time a story gets over 500 votes on Hacker News. To use this script, copy it to a device that's constantly online, create a short cronjob for it (something like every five minutes) and modify the script with your Simplepush six-character ID. This script is my re-creation of [Pushbullet's Hacker News 500](https://www.pushbullet.com/channel?tag=newsyc500).
+
+This script assumes that you have a file called `.hn500-to-simplepush.history` in the same folder as this script. What this file does is it acts like a history of every HN ID that Simplepush sent a notification about. If the HN ID that the script finds is already in the history file, it won't trigger a notification.
+
+* **Scripting language:** Python3
+* **Prerequsites:** `pip install requests` && [Simplepush](https://simplepush.io/).
 
 ## `music-to-subfolders.sh`
 
