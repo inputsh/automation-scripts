@@ -3,14 +3,14 @@
 import requests
 import json
 import sys, os
+from simplepush import send
 
 #TODO: Speed this script up. It currently takes ~28 seconds to finish.
-#TODO: Add Wallabag integration as bonus points.
 
 # Fetches the IDs of top HN stories at the moment.
 r = requests.get('https://hacker-news.firebaseio.com/v0/topstories.json')
 
-simplepush_id = "{{ SIX CHARACTER SIMPLEPUSH ID HERE}}"
+simplepush_id = "{{ SIX CHARACTER SIMPLEPUSH ID HERE }}"
 hn_id = ""
 i = 0
 score = 0
@@ -33,6 +33,5 @@ while i < 30:
                 # Append the ID to a file so that this ID wouldn't trigger notifications over and over again every time you run the script.
                 history_file.write(str(hn_id) + "\n")
                 # Send a Simplepush notification
-                cmd = "curl --data 'key=" + simplepush_id + "&title=HN500: " + json.loads(r2.text)['title'] + "'" + " --data-urlencode 'msg=" + json.loads(r2.text)['url'] + "' https://api.simplepush.io/send"
-                os.system(cmd)
+                send(simplepush_id, json.loads(r2.text)['title'], json.loads(r2.text)['url'])
     i = i + 1
